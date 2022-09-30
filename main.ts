@@ -1,5 +1,3 @@
-let P2 = 0
-let P1 = 0
 input.onPinPressed(TouchPin.P0, function () {
     basic.showNumber(3)
     basic.showNumber(2)
@@ -17,26 +15,35 @@ input.onPinPressed(TouchPin.P0, function () {
     basic.clearScreen()
 })
 input.onPinPressed(TouchPin.P2, function () {
-    P2 += 1
-    basic.showLeds(`
-        . . . # #
-        . . . # #
-        . . . # #
-        . . . # #
-        . . . # #
-        `)
-    basic.pause(1000)
-    basic.clearScreen()
+    if (Tocar == false) {
+        Tocar = true
+        P2 += 1
+        basic.showLeds(`
+            . . . # #
+            . . . # #
+            . . . # #
+            . . . # #
+            . . . # #
+            `)
+        basic.pause(1000)
+        basic.clearScreen()
+    }
 })
 input.onPinPressed(TouchPin.P1, function () {
-    P1 += 1
-    basic.showLeds(`
-        # # . . .
-        # # . . .
-        # # . . .
-        # # . . .
-        # # . . .
-        `)
-    basic.pause(1000)
-    basic.clearScreen()
+    if (Tocar == false) {
+        Tocar = true
+        P1 += 1
+        basic.showLeds(`
+            # # . . .
+            # # . . .
+            # # . . .
+            # # . . .
+            # # . . .
+            `)
+        basic.pause(1000)
+        basic.clearScreen()
+    }
 })
+let Tocar = false
+let P1 = 0
+let P2 = 0
